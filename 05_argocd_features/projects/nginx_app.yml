@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1 # ArgoCD Application resource
 kind: Application               # Kind of resource
 metadata:                        # Metadata section                         
-  name: nginx-frontend          # App name
+  name: apache-frontend          # App name
   namespace: argocd             # Must exist in ArgoCD namespace
 spec:
   project: frontend-team        # Assigns app to the frontend-team Project
   source:
     repoURL: https://github.com/swapnilgithub23/argocd-demos.git  # Git repo
     targetRevision: main        # Branch to watch
-    path: ui_approach/nginx     # Path in repo with manifests
+    path: cli_approach/apache     # Path in repo with manifests
   destination:
     server: https://172.31.51.156:33893  # Target cluster, run `argocd cluster list` to see
     namespace: frontend          # Namespace inside that cluster
